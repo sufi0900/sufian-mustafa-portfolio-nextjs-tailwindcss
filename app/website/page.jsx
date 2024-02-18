@@ -956,7 +956,7 @@ https://templatemo.com/tm-586-scholar
               <p>
                 Copyright © 2036 Scholar Organization. All rights reserved.
                 &nbsp;&nbsp;&nbsp; Design:{" "}
-                <a href="https://templatemo.com" rel="nofollow" target="_blank">
+                <a href="https://templatemo.com" rel="nofollow" target="blank">
                   TemplateMo
                 </a>
               </p>
