@@ -1,0 +1,45 @@
+"use client";
+import AOS from "aos";
+import React, { useEffect } from "react";
+
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
+import { Inter } from "next/font/google";
+import "node_modules/react-modal-video/css/modal-video.css";
+import "../styles/index.css";
+import "../styles/aos.css";
+
+const inter = Inter({ subsets: ["latin"] });
+// eslint-disable-next-line react-hooks/rules-of-hooks
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  useEffect(() => {
+    AOS.init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
+    <html suppressHydrationWarning lang="en">
+      {/*
+        <head /> will contain the components returned by the nearest parent
+        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+      */}
+      <head />
+
+      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+          <ScrollToTop />
+        </Providers>
+      </body>
+    </html>
+  );
+}
+
+import { Providers } from "./providers";
