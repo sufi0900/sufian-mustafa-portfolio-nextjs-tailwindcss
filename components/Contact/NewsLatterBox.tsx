@@ -10,18 +10,27 @@ const NewsLatterBox = () => {
   const subscribeEmail = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    if (!formRef.current) {
+      // Handle the case where formRef.current is undefined
+      console.error("formRef.current is undefined");
+      return;
+    }
+
+    // Assert the type of formRef.current
+    const formElement = formRef.current as HTMLFormElement;
+
     // Use your Email.js credentials
     try {
       const result = await emailjs.sendForm(
         "service_ugauc93",
         "template_adfk5bp",
-        formRef.current,
+        formElement, // Use the asserted formElement
         "Jwo8Jvergs2aiHjIX",
       );
       console.log(result.text);
 
       // Clear input fields after successful subscription
-      formRef.current.reset();
+      formElement.reset(); // Use the asserted formElement
 
       // Show window confirmation alert
       window.alert("Subscription successful!");
@@ -29,7 +38,6 @@ const NewsLatterBox = () => {
       console.log(error.text);
     }
   };
-
   return (
     <div
       className="wow fadeInUp relative z-10 rounded-sm bg-white p-8 shadow-three dark:bg-gray-dark sm:p-11 lg:p-8 xl:p-11"
