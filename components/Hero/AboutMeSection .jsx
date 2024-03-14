@@ -31,10 +31,10 @@ const AboutMeSection = () => {
                   data-aos-delay="270"
                   className="mb-8 text-base"
                 >
-                  My love for web development started while I was getting my
+                  My love for web development and design in canva started while I was getting my
                   Master's degree in Computer Science at AWKUM University
                   (2022). Even though I learned a lot of cool stuff about
-                  computers, building websites became my main jam. I enjoy the
+                  computers, building and design websites in canva became my main jam. I enjoy the
                   challenge of creating user-friendly and visually appealing
                   websites.
                 </p>
@@ -52,7 +52,7 @@ const AboutMeSection = () => {
                   data-aos-delay="310"
                   className="mb-8 text-base"
                 >
-                  I'm a front-end magician, building beautiful websites with the
+                  I'm a front-end magician, and also doing web design in canva building beautiful websites with the
                   latest tools such as HTML, CSS, and JavaScript with a
                   particular focus on ReactJS and NextJS. Think clear
                   structures, eye-catching styles, and smooth interactions. I
@@ -163,7 +163,7 @@ const AboutMeSection = () => {
                     data-aos-delay="330"
                     className="rounded bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-primary dark:hover:bg-white/5"
                   >
-                    JavaScript
+                  Canva 
                   </li>
                   <li
                     data-aos="fade-up"
