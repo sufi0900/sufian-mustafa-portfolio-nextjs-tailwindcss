@@ -3,10 +3,22 @@ import Link from "next/link";
 import AboutMe from "./AboutMeSection ";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"; // Import social icons
 import Image from "next/image";
-const Hero = () => {
+import { SocialIcon } from "react-social-icons";
+
+import { getProfile } from "../../app/utils/sanity-utis";
+import { Profile } from "../../types/Profile";
+
+import { Social } from "../../types/Social";
+export const revalidate = false;
+export const dynamic = "force-dynamic";
+type Props = {};
+const Hero = async (props: Props) => {
+  const profileData: Profile = await getProfile();
+
   return (
     <>
       <section
+        suppressHydrationWarning
         id="home"
         // data-aos="fade-up" // Specify the animation type here
         // data-aos-delay="200" // Optionally add a delay
@@ -26,12 +38,19 @@ const Hero = () => {
                   className="group relative inline-block"
                 >
                   <Image
-                    src="/images/pr2.png"
+                    src={profileData?.image}
                     width={100}
                     height={100}
                     alt="Display Pic"
                     className="mx-auto mb-4 h-32 w-32 transform rounded-full transition-transform duration-300 group-hover:scale-110"
                   />
+                  {/* <Image
+                    src="/images/pr2.png"
+                    width={100}
+                    height={100}
+                    alt="Display Pic"
+                    className="mx-auto mb-4 h-32 w-32 transform rounded-full transition-transform duration-300 group-hover:scale-110"
+                  /> */}
                   Hi there 👋I am,
                 </div>
 
@@ -40,7 +59,7 @@ const Hero = () => {
                   data-aos-delay="300"
                   className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight"
                 >
-                  Sufian Mustafa
+                  {profileData?.name}
                 </h1>
 
                 <h2
@@ -48,7 +67,8 @@ const Hero = () => {
                   data-aos-delay="360"
                   className=" full-stack-web-development grayscale-70  text-2xl font-bold leading-tight text-black dark:text-primary"
                 >
-                  Full Stack Web Developer
+                  {/* Full Stack Web Developer */}
+                  <p className="font-bold">{profileData?.smallBio}</p>
                 </h2>
 
                 <p
@@ -69,9 +89,19 @@ const Hero = () => {
                     Think interactive, engaging, and SEO-friendly 🤝
                   </span>
                 </p>
-
+                <div className="flex items-center space-x-6">
+                  {profileData?.socials?.map((s: Social, index: number) => (
+                    <SocialIcon
+                      key={index}
+                      style={{ height: 25, width: 25 }}
+                      bgColor="#793FEF"
+                      className="duration-200 hover:scale-125"
+                      url={s.url}
+                    />
+                  ))}
+                </div>
                 {/* Social Icons */}
-                <div
+                {/* <div
                   data-aos="fade-up"
                   data-aos-delay="500"
                   className="flex justify-center space-x-4"
@@ -100,8 +130,7 @@ const Hero = () => {
                   >
                     <FaGithub size={24} />
                   </a>
-                  {/* Add more social icons with hover effects as needed */}
-                </div>
+                </div> */}
 
                 <br />
                 {/* CTA Buttons */}
