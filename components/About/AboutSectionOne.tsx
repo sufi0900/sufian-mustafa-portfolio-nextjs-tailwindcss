@@ -47,6 +47,7 @@ const WebDevelopmentSkills = () => {
                     <SkillItem skill="JavaScript" proficiency="70" />
                     <SkillItem skill="React.js" proficiency="80" />
                     <SkillItem skill="React MUI" proficiency="80" />
+                    <SkillItem skill="CANVA Design" proficiency="80" />
                     <SkillItem skill="React Bootstrap" proficiency="70" />
                     <SkillItem skill="Tailwind CSS" proficiency="70" />
                   </div>
